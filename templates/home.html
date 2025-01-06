@@ -32,8 +32,8 @@
                         {{task.task}}
                         <span style="position: relative; float: right;">
                             <a href="{% url 'mark_as_done' pk=task.id %} " class="btn btn-success"><i class="fa fa-check"></i> Mark as Done</a>
-                            <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                            <a class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                            <a href="{% url 'deleteTask' pk=task.id %}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                            <a href="{% url 'edit_task' pk=task.id %}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
                         </span>
                     </div>
                 </div>
@@ -46,7 +46,11 @@
                 <div class="card m-1">
                     
                     <div class="card-body">
-                        {{ forloop.counter }}  {{completed_task.task}}
+                        
+                        {{ forloop.counter }}  {{completed_task.task }}
+                        <span style="position: relative; float: right;">
+                            <a href="{% url 'not_completed_task' pk=completed_task.id %}" class="btn btn-warning"><i class="fa fa-times"></i> Not Completed</a>
+                        </span>
                     </div>
                 </div>
                 {% endfor %}
