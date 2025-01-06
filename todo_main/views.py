@@ -4,6 +4,6 @@ from todo.models import Tasks
 
 # Create your views here.
 def home(request):
-    tasks= Tasks.objects.filter(status=False)
+    tasks= Tasks.objects.filter(status=False).order_by('-modified_at')
     context = {'tasks':tasks}
     return render(request,'home.html',context)

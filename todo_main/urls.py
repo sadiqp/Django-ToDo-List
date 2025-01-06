@@ -26,5 +26,5 @@ urlpatterns = [
     path('',views.home,name='home'),
 
     #TODO taks
-    path('todo/',include(todo.urls))
+    path('todo/',include('todo.urls'))
 ]
